@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
-export default function Products() {
+export default function Products(props) {
+
+    console.log(props)
 
     const productList = [
         { id: 1, name: 'Product 1' },
@@ -17,7 +20,7 @@ export default function Products() {
             <ul>
                 {products.map((product) => (
                     <li key={product.id}>
-                        {product.name}
+                        <Link to={`/products/${product.id}`} >{product.name}</Link>
                     </li>
                 ))
                 }
