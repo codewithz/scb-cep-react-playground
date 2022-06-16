@@ -14,6 +14,15 @@ export default function ProductListComponent() {
 
     const [products, setProducts] = useState(productList);
 
+    const removeFromCart = (productId) => {
+        console.log(productId)
+        const filteredProductList = products.filter(
+            (product) => (product.id !== productId)
+        );
+
+        setProducts(filteredProductList);
+    }
+
     return (
         <div >
             {
@@ -22,6 +31,9 @@ export default function ProductListComponent() {
                     <ProductComponent
                         name={product.name}
                         quantity={product.quantity}
+                        id={product.id}
+                        onRemove={removeFromCart}
+                        key={product.id}
                     />
 
 

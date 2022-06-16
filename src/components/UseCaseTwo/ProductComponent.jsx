@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 export default function ProductComponent(props) {
     const [productName, setProductName] = useState(props.name)
     const [quantity, setQuantity] = useState(props.quantity)
+    const [id, setId] = useState(props.id)
 
     const increment = () => {
         setQuantity(quantity + 1)
@@ -12,6 +13,10 @@ export default function ProductComponent(props) {
         if (quantity > 0) {
             setQuantity(quantity - 1)
         }
+    }
+
+    const removeFromCart = () => {
+        props.onRemove(id)
     }
 
     const styles = {
@@ -35,6 +40,11 @@ export default function ProductComponent(props) {
             >
                 -
             </button>
+            &nbsp; &nbsp;
+            <button
+                className="btn btn-sm btn-danger m-2"
+                onClick={removeFromCart}
+            >Remove From Cart</button>
         </div>
     )
 }
