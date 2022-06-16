@@ -23,17 +23,33 @@ export default function ProductListComponent() {
         setProducts(filteredProductList);
     }
 
+    const handleIncrement = (product) => {
+        const productsClone = [...products];
+        const index = productsClone.indexOf(product);
+        productsClone[index] = { ...product }
+        productsClone[index].quantity++;
+        setProducts(productsClone);
+    }
+
+    const handleDecrement = (product) => {
+        const productsClone = [...products];
+        const index = productsClone.indexOf(product);
+        productsClone[index] = { ...product }
+        productsClone[index].quantity--;
+        setProducts(productsClone);
+    }
+
     return (
         <div >
             {
                 products.map((product) =>
 
                     <ProductComponent
-                        name={product.name}
-                        quantity={product.quantity}
-                        id={product.id}
                         onRemove={removeFromCart}
                         key={product.id}
+                        product={product}
+                        onIncrement={handleIncrement}
+                        onDecrement={handleDecrement}
                     />
 
 
