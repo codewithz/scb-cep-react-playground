@@ -1,16 +1,28 @@
 
 import './App.css';
-import { UseCaseOneHome } from './components/UseCaseOne/UseCaseOneHome';
-import UseCaseTwoHome from './components/UseCaseTwo/UseCaseTwoHome';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Products from './components/RoutingApp/Products';
+import Posts from './components/RoutingApp/Posts';
+import Dashboard from './components/RoutingApp/admin/Dashboard';
+import Home from './components/RoutingApp/Home';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome to Cloud Engineering Program</h1>
-      <hr></hr>
-      {/* <UseCaseOneHome /> */}
-      <UseCaseTwoHome />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <div>
+          <Switch>
+            <Route path="/products" component={Products} />
+            <Route path="/posts" component={Posts} />
+            <Route path="/admin" component={Dashboard} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
