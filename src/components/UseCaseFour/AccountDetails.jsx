@@ -4,6 +4,7 @@ import axios from 'axios'
 export default function AccountDetails() {
 
     const [accounts, setAccounts] = useState([])
+    const [accountNumber, setAccountNumber] = useState(0)
 
     useEffect(() => {
         getAccounts();
@@ -21,14 +22,38 @@ export default function AccountDetails() {
         setAccounts(data.body)
     }
 
+    const handleAccountNumber = (event) => {
+        setAccountNumber(event.target.value)
+        console.log("Account Number changed")
+    }
+
+    const addAccount = async () => {
+        console.log("Account Addition")
+        const newAccount = {
+            accountNumber: accountNumber,
+            name: 'Some Name',
+            nationality: 'Indian',
+            balance: 0,
+            creditLimit: 10000,
+            accountCreationDate: new Date()
+        }
+
+        const promise = axios.post('http://localhost:9099/accounts', newAccount)
+        const result = await promise;
+        console.log(result)
+    }
+
     return (
         <div>
+            Account Number: <input type="text" onChange={handleAccountNumber} />
             <button
                 className="btn btn-primary"
-                style={{ marginBottom: 20, marginTop: 20 }}>
+                style={{ marginBottom: 20, marginTop: 20 }}
+                onClick={addAccount}
+            >
                 Add
             </button>
-
+            <hr />
             <table className="table">
                 <thead>
                     <tr>
