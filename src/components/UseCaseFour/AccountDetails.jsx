@@ -41,6 +41,19 @@ export default function AccountDetails() {
         const promise = axios.post('http://localhost:9099/accounts', newAccount)
         const result = await promise;
         console.log(result)
+        // getAccounts()
+    }
+
+    const deleteAccount = async (account) => {
+        const apiEndPoint = `http://localhost:9099/accounts/${account.accountNumber}`
+
+        const promise = axios.delete(apiEndPoint)
+
+        const result = await promise;
+
+        console.log(result)
+
+        getAccounts();
     }
 
     return (
@@ -78,6 +91,14 @@ export default function AccountDetails() {
                                     <td>{account.balance}</td>
                                     <td>{account.creditLimit}</td>
                                     <td>{account.accountCreationDate}</td>
+                                    <td>
+                                        <button
+                                            className="btn btn-danger btn-sm m-2"
+                                            onClick={() => deleteAccount(account)}
+                                        >
+                                            Delete
+                                        </button>
+                                    </td>
                                 </tr>
                             )
                         )
