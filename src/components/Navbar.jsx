@@ -19,6 +19,7 @@ export default function Navbar() {
                     <Link className="nav-item nav-link" to="/use-case-one">Use Case One</Link>
                     <Link className="nav-item nav-link" to="/use-case-two">Use Case Two</Link>
                     <Link className="nav-item nav-link" to="/use-case-three">Use Case Three</Link>
+                    <Link className="nav-item nav-link" to="/use-case-four">API Calls</Link>
 
                 </div>
             </div>

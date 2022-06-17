@@ -11,6 +11,7 @@ import NotFound from './components/RoutingApp/NotFound';
 import { UseCaseOneHome } from './components/UseCaseOne/UseCaseOneHome';
 import UseCaseTwoHome from './components/UseCaseTwo/UseCaseTwoHome';
 import UseCaseThreeHome from './components/UseCaseThree/UseCaseThreeHome';
+import UseCaseFourHome from './components/UseCaseFour/UseCaseFourHome';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route path="/use-case-one" component={UseCaseOneHome} />
             <Route path="/use-case-two" component={UseCaseTwoHome} />
             <Route path="/use-case-three" component={UseCaseThreeHome} />
+            <Route path="/use-case-four" component={UseCaseFourHome} />
             <Route path="/not-found" component={NotFound} />
 
             <Redirect to="/not-found" />
