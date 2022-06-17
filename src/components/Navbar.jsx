@@ -16,6 +16,9 @@ export default function Navbar() {
                     <Link className="nav-item nav-link" to="/products">Products</Link>
                     <Link className="nav-item nav-link" to="/posts/2022/02">Posts</Link>
                     <Link className="nav-item nav-link" to="/admin">Admin</Link>
+                    <Link className="nav-item nav-link" to="/use-case-one">Use Case One</Link>
+                    <Link className="nav-item nav-link" to="/use-case-two">Use Case Two</Link>
+                    <Link className="nav-item nav-link" to="/use-case-three">Use Case Three</Link>
 
                 </div>
             </div>

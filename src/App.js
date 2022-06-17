@@ -8,6 +8,9 @@ import Dashboard from './components/RoutingApp/admin/Dashboard';
 import Home from './components/RoutingApp/Home';
 import ProductDetails from './components/RoutingApp/ProductDetails';
 import NotFound from './components/RoutingApp/NotFound';
+import { UseCaseOneHome } from './components/UseCaseOne/UseCaseOneHome';
+import UseCaseTwoHome from './components/UseCaseTwo/UseCaseTwoHome';
+import UseCaseThreeHome from './components/UseCaseThree/UseCaseThreeHome';
 
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
             <Route path="/products" render={(props) => <Products sortBy='newest' {...props} />} />
             <Route path="/posts/:year?/:month?" component={Posts} />
             <Route path="/admin" component={Dashboard} />
+            <Route path="/use-case-one" component={UseCaseOneHome} />
+            <Route path="/use-case-two" component={UseCaseTwoHome} />
+            <Route path="/use-case-three" component={UseCaseThreeHome} />
             <Route path="/not-found" component={NotFound} />
 
             <Redirect to="/not-found" />
