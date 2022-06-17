@@ -45,15 +45,29 @@ export default function AccountDetails() {
     }
 
     const deleteAccount = async (account) => {
-        const apiEndPoint = `http://localhost:9099/accounts/${account.accountNumber}`
+        try {
+            const apiEndPoint = `http://localhost:9099/accounts/${account.accountNumber}`
+            const promise = axios.delete(apiEndPoint)
+            const result = await promise;
+            console.log(result)
+            getAccounts();
+        }
+        catch (error) {
+            // Expected (404: Not found,400: bad message) -- CLient errors
+            // Display a speefic error message
+            console.log(error)
+            if (error.response && error.response.status === 404) {
+                alert('This account is already deleted')
+            }
+            //Unexpected Errors (Network DOwn, Server Down, DB Error, Bug)
+            // Log it
+            // Display a generic message
+            else {
+                console.log("Logging the error", error)
+                alert('Something failed while deleting this account')
+            }
 
-        const promise = axios.delete(apiEndPoint)
-
-        const result = await promise;
-
-        console.log(result)
-
-        getAccounts();
+        }
     }
 
     return (
